@@ -1,0 +1,434 @@
+<div class="container-fluid">
+    <div class="item_1">
+        <h1>CREATE EMPLOYEE</h1>
+    </div>
+    <div>
+        <mat-accordion class="example-headers-align"  [formGroup]="createemployee">
+            <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <h2>Basic Information</h2>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row">
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Prefix</mat-label>
+                            <mat-select required formControlName="prefix">
+                                <mat-option value="option">Mr</mat-option>
+                                <mat-option value="option">Ms</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['prefix'].touched && createemployee.controls['prefix'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>First Name</mat-label>
+                            <input matInput type="name" formControlName="firstname" required>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['firstname'].touched && createemployee.controls['firstname'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Middle Name</mat-label>
+                            <input matInput type="name" formControlName="middlename">
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['middlename'].touched && createemployee.controls['middlename'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Last Name</mat-label>
+                            <input matInput type="name" formControlName="lastname">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Employee Code</mat-label>
+                            <input matInput type="name" formControlName="employeecode">
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['employeecode'].touched && createemployee.controls['employeecode'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline" class="example-form-field">
+                            <mat-label>Choose a date</mat-label>
+                            <input matInput [matDatepicker]="datepicker1" (dateChange)="dateChanged($event)" formControlName="dob">
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matSuffix [for]="datepicker1"></mat-datepicker-toggle>
+                            <mat-datepicker #datepicker1>
+                                <mat-datepicker-actions>
+                                    <button mat-button matDatepickerCancel>Cancel</button>
+                                    <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                                </mat-datepicker-actions>
+                            </mat-datepicker>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['dob'].touched && createemployee.controls['dob'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Gender</mat-label>
+                            <mat-select required formControlName="gender">
+                                <mat-option value="option">Male</mat-option>
+                                <mat-option value="option">Female</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['gender'].touched && createemployee.controls['gender'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Blood Group</mat-label>
+                            <mat-select required formControlName="bloodgroup">
+                                <mat-option value="option">A+ Ve</mat-option>
+                                <mat-option value="option">A- Ve</mat-option>
+                                <mat-option value="option">B+ Ve</mat-option>
+                                <mat-option value="option">B- Ve</mat-option>
+                                <mat-option value="option">O+ Ve</mat-option>
+                                <mat-option value="option">O- Ve</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['bloodgroup'].touched && createemployee.controls['bloodgroup'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Nationality</mat-label>
+                            <mat-select required formControlName="nationality">
+                                <mat-option value="option">Hindu</mat-option>
+                                <mat-option value="option">Muslim</mat-option>
+                                <mat-option></mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['nationality'].touched && createemployee.controls['nationality'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Work email</mat-label>
+                            <input matInput type="name" required formControlName="workemail" >
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['workemail'].touched && createemployee.controls['workemail'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Phone</mat-label>
+                            <input matInput type="number" formControlName="phone" required>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['phone'].touched && createemployee.controls['phone'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Biometric Id</mat-label>
+                            <input matInput type="number">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Skill type</mat-label>
+                            <mat-select required formControlName="skilltype">
+                                <mat-option value="option">Developer</mat-option>
+                                <mat-option value="option">Designer</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['skilltype'].touched && createemployee.controls['skilltype'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <mat-action-row>
+                    <button mat-button color="primary" (click)="nextStep()">Next</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+            <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <h2>Employement status & type</h2>
+                    </mat-panel-title>
+
+                </mat-expansion-panel-header>
+
+                <div class="row">
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline" class="example-form-field">
+                            <mat-label>Date of joining</mat-label>
+                            <input matInput [matDatepicker]="datepicker2" (dateChange)="dateChanged($event)" required formControlName="doj">
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matSuffix [for]="datepicker2"></mat-datepicker-toggle>
+                            <mat-datepicker #datepicker2>
+                                <mat-datepicker-actions>
+                                    <button mat-button matDatepickerCancel>Cancel</button>
+                                    <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                                </mat-datepicker-actions>
+                            </mat-datepicker>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['doj'].touched && createemployee.controls['doj'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline" class="example-form-field">
+                            <mat-label>Retairement Date</mat-label>
+                            <input matInput [matDatepicker]="datepicker3" (dateChange)="dateChanged($event)" required formControlName="retdate">
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matSuffix [for]="datepicker3"></mat-datepicker-toggle>
+                            <mat-datepicker #datepicker3>
+                                <mat-datepicker-actions>
+                                    <button mat-button matDatepickerCancel>Cancel</button>
+                                    <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                                </mat-datepicker-actions>
+                            </mat-datepicker>
+                           
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Employement type</mat-label>
+                            <mat-select required formControlName="emptype">
+                                <mat-option value="option">Intern</mat-option>
+                                <mat-option value="option"> Consultant </mat-option>
+                                <mat-option value="option">Permanent</mat-option>
+                                <mat-option value="option">Trainee</mat-option>
+                                <mat-option value="option">Contractual</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['emptype'].touched && createemployee.controls['emptype'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Employement status</mat-label>
+                            <mat-select required formControlName="empstatus">
+                                <mat-option value="option">Probation</mat-option>
+                                <mat-option value="option">Confirmed</mat-option>
+                                <mat-option value="option">Settled</mat-option>
+                                <mat-option value="option">Relieved</mat-option>
+                                <mat-option value="option">Resigned</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['empstatus'].touched && createemployee.controls['empstatus'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <mat-action-row>
+                    <button mat-button color="warn" (click)="prevStep()">Previous</button>
+                    <button mat-button color="primary" (click)="nextStep()">Next</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+            <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <h2>Position</h2>
+                    </mat-panel-title>
+                    <!-- <mat-panel-description>
+                        Inform the date you wish to travel
+                        <mat-icon>date_range</mat-icon>
+                    </mat-panel-description> -->
+                </mat-expansion-panel-header>
+
+                <div class="row">
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Company</mat-label>
+                            <mat-select required  formControlName="company" >
+                                <mat-option value="option">Probation</mat-option>
+                                <mat-option value="option">Confirmed</mat-option>
+                                <mat-option value="option">Resigned</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['company'].touched && createemployee.controls['company'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Business Unit</mat-label>
+                            <mat-select required  formControlName="businessunit">
+                                <mat-option value="option">Probation</mat-option>
+                                <mat-option value="option">Confirmed</mat-option>
+                                <mat-option value="option">Resigned</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['businessunit'].touched && createemployee.controls['businessunit'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Department</mat-label>
+                            <mat-select required  formControlName="department">
+                                <mat-option value="option">Probation</mat-option>
+                                <mat-option value="option">Confirmed</mat-option>
+                                <mat-option value="option">Resigned</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['department'].touched && createemployee.controls['department'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Sub department</mat-label>
+                            <mat-select required  formControlName="subdepartment">
+                                <mat-option value="option">Probation</mat-option>
+                                <mat-option value="option">Confirmed</mat-option>
+                                <mat-option value="option">Resigned</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['subdepartment'].touched && createemployee.controls['subdepartment'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Designation</mat-label>
+                            <mat-select required  formControlName="designation">
+                                <mat-option value="option">Probation</mat-option>
+                                <mat-option value="option">Confirmed</mat-option>
+                                <mat-option value="option">Resigned</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['designation'].touched && createemployee.controls['designation'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+
+                    </div>
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Region</mat-label>
+                            <mat-select required  formControlName="region">
+                                <mat-option value="option">Probation</mat-option>
+                                <mat-option value="option">Confirmed</mat-option>
+                                <mat-option value="option">Resigned</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['region'].touched && createemployee.controls['region'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+
+                    </div>
+                   
+                </div>
+                <div class="row">
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Branch</mat-label>
+                            <mat-select required  formControlName="branch">
+                                <mat-option value="option">Probation</mat-option>
+                                <mat-option value="option">Confirmed</mat-option>
+                                <mat-option value="option">Resigned</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['branch'].touched && createemployee.controls['branch'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Sub Branch</mat-label>
+                            <mat-select required  formControlName="subbranch">
+                                <mat-option value="option">Probation</mat-option>
+                                <mat-option value="option">Confirmed</mat-option>
+                                <mat-option value="option">Resigned</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['subbranch'].touched && createemployee.controls['subbranch'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Grade</mat-label>
+                            <mat-select required formControlName="grade">
+                                <mat-option value="option">Probation</mat-option>
+                                <mat-option value="option">Confirmed</mat-option>
+                                <mat-option value="option">Resigned</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['grade'].touched && createemployee.controls['grade'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Level</mat-label>
+                            <mat-select required  formControlName="level">
+                                <mat-option value="option">Probation</mat-option>
+                                <mat-option value="option">Confirmed</mat-option>
+                                <mat-option value="option">Resigned</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <div *ngIf="createemployee.controls['level'].touched && createemployee.controls['level'].invalid">This field should not be left blank</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Reporting Manager</mat-label>
+                            <mat-select   formControlName="reportingmanager">
+                                <mat-option value="option">Probation</mat-option>
+                                <mat-option value="option">Confirmed</mat-option>
+                                <mat-option value="option">Resigned</mat-option>
+                            </mat-select>  
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Functional Manager</mat-label>
+                            <mat-select   formControlName="functionalmanager">
+                                <mat-option value="option">Probation</mat-option>
+                                <mat-option value="option">Confirmed</mat-option>
+                                <mat-option value="option">Resigned</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                  
+                </div>
+                <!-- <mat-form-field appearance="outline">
+                <mat-label>Date</mat-label>
+                <input matInput [matDatepicker]="picker" (focus)="picker.open()" readonly>
+              </mat-form-field>
+              <mat-datepicker #picker></mat-datepicker>
+           -->
+                <mat-action-row>
+                    <button mat-button color="warn" (click)="prevStep()">Previous</button>
+                    <button mat-button color="primary" (click)="nextStep()">End</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+
+        </mat-accordion>
+
+    </div>
+</div>

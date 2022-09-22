@@ -1,0 +1,87 @@
+
+.item_1{
+    text-align: center;
+}
+.leftimg{
+    padding-top: 12%;
+    width: 100%;
+    height: 28rem;
+}
+.left{
+    background-color: #fff6f5;
+    height: 49rem;
+}
+.item_2{
+    text-align: center;
+    font-size: 35px;
+    line-height: 47px;
+    padding: 4rem;
+    margin-bottom: 0px;
+    font-weight: 800;
+    color: red;
+}
+
+    .Header img{
+        margin: 6% 0% 0% 0%;
+        height: 9rem;
+        padding: 2% 2% 2% 2%;
+        }
+.right{
+    text-align: center;
+}
+.right h1{
+    color: rgb(190, 10, 10);
+    font-weight: 500;
+    font-size: 38px;
+}
+mat-form-field{width: 70%;border-radius: 10px;
+    line-height: 25px;
+    margin-bottom: 25px;}
+ mat-label{font-size: larger;padding-left:10px;}   
+.login{
+    padding-top: 1rem;
+}
+// .login{
+//     width: 100%;
+// }
+.hint{
+    font-size: initial;
+    color:rgb(225 111 35);;
+    cursor: pointer;
+    margin-right: 15%;
+}
+.loginbtn{
+    width: 70%;
+    background-color: red;
+    color: white;
+    font-size: large;
+    height: 3rem;
+    border-radius: 11px;
+    margin-top: 30px;
+}
+:host ::ng-deep .mat-form-field-outline-start {
+    border-radius: 15px 0 0 15px !important;
+    min-width: 15px !important;
+}
+ 
+:host ::ng-deep .mat-form-field-outline-end {
+    border-radius: 0 15px 15px 0 !important;
+}
+.passchanged{
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 4% 20%;
+    padding: 4% 2%;
+    font-weight: 400;
+    color: #4c4a4a;
+}
+.passchanged p{
+font-size: xx-large;
+line-height: 2rem;
+}
+.tikimage{
+    height: 90px;
+    width: 90px;
+    border-radius: 50px;
+}
+

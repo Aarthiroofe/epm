@@ -1,0 +1,90 @@
+
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-12 col-xl-8 col-lg-8 col-md-8 col-sm-12">
+          <mat-form-field appearance="outline" style="margin-top:10px"  style="width:40% ;padding-bottom: 22px;">
+            <mat-label>Column to sort</mat-label>
+            <mat-select  [(value)]="selectedColumn" (selectionChange)="changeSortedColumn()">
+              <mat-option *ngFor="let column of displayedColumns" [value]="column">
+                {{column}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+            <mat-form-field appearance="outline" style="width:40% ;margin-left: 10px;">
+                <mat-label><mat-icon>search</mat-icon>Search employee</mat-label>
+                  <input matInput (keyup)="applyFilter($event)" #input>
+                </mat-form-field>
+                
+                
+        </div>
+        <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12 d-flex justify-content-around">
+            <button mat-raised-button color="primary" style="width: 25%;height:52%;" (click)="addemploye()" >Add employee</button>
+            <button mat-raised-button color="primary" style="width: 25%;height:52%;" (click)="openPDF()" >download pdf</button>
+            <button mat-raised-button color="primary" style="width: 25%;height:52%;" (click)="exportexcel()">Export to excel</button>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8"  id="employee-list-data">
+            <!-- employee id -->
+            <ng-container matColumnDef="Employeeid">
+                <th mat-header-cell *matHeaderCellDef  mat-sort-header> Employeeid </th>
+                <td mat-cell *matCellDef="let element"> {{element.Employeeid}} </td>
+              </ng-container>
+             <!-- firstname -->
+              <ng-container matColumnDef="FirstName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.FirstName}} </td>
+              </ng-container>
+             <!-- lastname -->
+              <ng-container matColumnDef="LastName">
+                <th mat-header-cell *matHeaderCellDef  mat-sort-header>Last Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.LastName}} </td>
+              </ng-container>
+             <!-- email -->
+              <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef  mat-sort-header>Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+              </ng-container>
+            <!-- Position Column -->
+            <ng-container matColumnDef="phoneno">
+              <th mat-header-cell *matHeaderCellDef  mat-sort-header>Phone No</th>
+              <td mat-cell *matCellDef="let element"> {{element.phoneno}} </td>
+            </ng-container>
+            <!-- employertype -->
+            <ng-container matColumnDef="employertype">
+                <th mat-header-cell *matHeaderCellDef  mat-sort-header>Employer Type</th>
+                <td mat-cell *matCellDef="let element"> {{element.employertype}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Action">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+                <td mat-cell *matCellDef="let element"> <button mat-icon-button matTooltip="Click to Edit" class="iconbutton"
+                    color="primary" >
+                    <mat-icon color="primary" style="margin:0px 4px ;" (click)="edit(element)">edit</mat-icon>
+                    <mat-icon color="warn" style="margin:0px 4px ;" (click)="delet(element)">delete</mat-icon>
+                    <mat-icon color="accent" style="margin:0px 4px ;" (click)="view(element)">visibility</mat-icon>
+                  </button> </td>
+              </ng-container>
+              <!-- <ng-container matColumnDef="edit">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Edit </mat-header-cell>
+                <mat-cell *matCellDef="let element"> <button mat-icon-button matTooltip="Click to Edit" class="iconbutton"
+                    color="primary" (click)="edit(element)">
+                    <mat-icon>edit</mat-icon>
+                  </button> </mat-cell>
+              </ng-container> -->
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            </tr>
+          </table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 20,25]"
+          showFirstLastButtons 
+          aria-label="Select page of periodic elements">
+</mat-paginator>
+    </div>
+</div>
